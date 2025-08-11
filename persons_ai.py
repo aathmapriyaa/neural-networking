@@ -12,13 +12,13 @@ mydata["BodyType_encoded"] = le.fit_transform(mydata[["BodyType"]])
 x = mydata[["Age","Gender_encoded","BodyType_encoded","Height"]]
 y = mydata["Weight"]
 
-x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2) 
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3) 
 
 model = Sequential()
 
-model.add(Dense(5, activation="relu",input_shape=(4,)))
-model.add(Dense(5, activation="relu")) 
-model.add(Dense(5, activation="relu"))
+model.add(Dense(10, activation="relu",input_shape=(4,)))
+model.add(Dense(10, activation="relu")) 
+model.add(Dense(10, activation="relu"))
 model.add(Dense(1))  
 model.compile(optimizer="adam", loss="mse")
 model.fit(x_train, y_train, epochs=100) 
